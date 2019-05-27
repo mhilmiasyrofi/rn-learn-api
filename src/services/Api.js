@@ -11,9 +11,18 @@ import { Platform, StyleSheet, Text, View, Button, Alert } from 'react-native';
 
 class Api extends Component{
 
+    convertArrayToString = (arr) => {
+        return arr.toString();
+    }
+
     getHeadacheDiagnosis = () => {
+
+        // var data; 
+
+        // data_str = convertArrayToString(data);
         
-        var URI = "https://alinea.herokuapp.com/Diagnosa/Headache?data=[0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 53]"
+        // var URI = "https://alinea.herokuapp.com/Diagnosa/Headache?data=[" + data_str + "]";
+        var URI = "https://alinea.herokuapp.com/Diagnosa/Headache?data=[0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 53]";
         
         fetch(URI, {
             method: 'GET'
@@ -24,7 +33,7 @@ class Api extends Component{
             .then((responseJson) => {
                 //Success 
                 // console.log(responseJson);
-                // alert(JSON.stringify(responseJson));
+                alert(JSON.stringify(responseJson));
                 return JSON.stringify(responseJson);
             })
             //If response is not in json then in error
