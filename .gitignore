@@ -71,6 +71,8 @@ test/**/*.js
 SmokeTestLogs
 **/*.js.map
 vscode-react-native-*.vsix
+package-lock.json
+
 
 # Sample Application auto-generated files
 HelloWorld/.vscode/.react/debuggerWorker.js
