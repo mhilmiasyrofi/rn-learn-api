@@ -9,7 +9,7 @@
 import React, {Component} from 'react';
 import { Platform, StyleSheet, Text, View, Button, Alert } from 'react-native';
 
-import getHeadacheDiagnosis from './src/services/Api'
+import Api from './src/services/Api'
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
@@ -18,8 +18,10 @@ const instructions = Platform.select({
     'Shake or press menu button for dev menu',
 });
 
-type Props = {};
-export default class App extends Component<Props> {    
+var api = new Api();
+
+export default class App extends Component<Props> {   
+
     render() {
     return (
       <View style={styles.container}>
@@ -28,7 +30,7 @@ export default class App extends Component<Props> {
         <Text style={styles.instructions}>{instructions}</Text>
         {/* <Text style={styles.instructions}>{this.getDataUsingGet}</Text> */}
         {/*Running GET Request*/}
-        <Button title='Get Data Using GET' onPress={this.getHeadacheDiagnosis()} />
+            <Button title='Get Data Using GET' onPress={api.getHeadacheDiagnosis()} />
       </View>
     );
   }
