@@ -9,6 +9,8 @@
 import React, {Component} from 'react';
 import { Platform, StyleSheet, Text, View, Button, Alert } from 'react-native';
 
+import getHeadacheDiagnosis from './src/services/Api'
+
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
   android:
@@ -17,32 +19,7 @@ const instructions = Platform.select({
 });
 
 type Props = {};
-export default class App extends Component<Props> {
-  
-    getDataUsingGet() {
-        //GET request 
-        var URI = "https://alinea.herokuapp.com/Diagnosa/Headache?data=[0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 53]"
-        fetch(URI, {
-            method: 'GET'
-            //Request Type 
-        })
-            .then((response) => response.json())
-                //If response is in json then in success
-            .then((responseJson) => {
-                //Success 
-                // console.log(responseJson);
-                alert(JSON.stringify(responseJson));
-                return JSON.stringify(responseJson);
-            })
-            //If response is not in json then in error
-            .catch((error) => {
-                //Error 
-                alert(JSON.stringify(error));
-                console.error(error);
-            });
-    } 
-    
-    
+export default class App extends Component<Props> {    
     render() {
     return (
       <View style={styles.container}>
@@ -51,7 +28,7 @@ export default class App extends Component<Props> {
         <Text style={styles.instructions}>{instructions}</Text>
         {/* <Text style={styles.instructions}>{this.getDataUsingGet}</Text> */}
         {/*Running GET Request*/}
-        <Button title='Get Data Using GET' onPress={this.getDataUsingGet} />
+        <Button title='Get Data Using GET' onPress={this.getHeadacheDiagnosis()} />
       </View>
     );
   }

@@ -65,7 +65,7 @@ src/**/nodeDebugLocation.json
 nls.*.json
 
 # Compiled files
-src/**/*.js
+# src/**/*.js
 !src/extension/appcenter/lib/**/*.js
 test/**/*.js
 SmokeTestLogs
